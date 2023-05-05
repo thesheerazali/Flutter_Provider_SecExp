@@ -41,6 +41,7 @@ class HomePage extends StatelessWidget {
             ),
             Expanded(
               child: ListView.builder(
+                padding: EdgeInsets.all(16),
                 itemCount: numberProvider.numbers.length,
                 itemBuilder: (context, index) {
                   return Text(
