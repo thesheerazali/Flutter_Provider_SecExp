@@ -10,41 +10,43 @@ class SecondScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Consumer<HomePageProvider>(
-        builder: (context, numberListProvider, child) => Scaffold(
-          floatingActionButton: FloatingActionButton(
-            child: Icon(Icons.add),
-            onPressed: () {
-              numberListProvider.updateValue();
-            },
-          ),
-          appBar: AppBar(),
-          body: Column(
-            children: [
-              Center(
-                child: Text(
-                  numberListProvider.numbers.last.toString(),
-                  style: const TextStyle(fontSize: 25),
-                ),
-              ),
-              SizedBox(
-                height: 200,
-                width: double.infinity,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: numberListProvider.numbers.length,
-                  itemBuilder: (context, index) {
-                    return Text(
-                      numberListProvider.numbers[index].toString(),
-                      style: TextStyle(fontSize: 25),
-                    );
-                  },
-                ),
-              ),
-            ],
-          ),
+    return Consumer<HomePageProvider>(
+      builder: (context, numberListProvider, child) => Scaffold(
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: () {
+            numberListProvider.updateValue();
+          },
         ),
-      
+        appBar: AppBar(
+          title: const Text("Counter App"),
+          centerTitle: true,
+        ),
+        body: Column(
+          children: [
+            Center(
+              child: Text(
+                numberListProvider.numbers.last.toString(),
+                style: const TextStyle(fontSize: 25),
+              ),
+            ),
+            SizedBox(
+              height: 200,
+              width: double.infinity,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: numberListProvider.numbers.length,
+                itemBuilder: (context, index) {
+                  return Text(
+                    numberListProvider.numbers[index].toString(),
+                    style: TextStyle(fontSize: 25),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

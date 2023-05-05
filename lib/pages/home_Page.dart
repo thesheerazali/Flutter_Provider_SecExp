@@ -16,13 +16,27 @@ class HomePage extends StatelessWidget {
             numberProvider.updateValue();
           },
         ),
-        appBar: AppBar(),
+        appBar: AppBar(
+          title: const Text("Counter App"),
+          centerTitle: true,
+        ),
         body: Column(
           children: [
-            Center(
-              child: Text(
-                numberProvider.numbers.last.toString(),
-                style: const TextStyle(fontSize: 25),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Container(
+                height: 50,
+                width: 50,
+                decoration: const BoxDecoration(
+                  color: Colors.blueGrey,
+                  borderRadius: BorderRadius.all(Radius.circular(8)),
+                ),
+                child: Center(
+                  child: Text(
+                    numberProvider.numbers.last.toString(),
+                    style: const TextStyle(fontSize: 25, color: Colors.white),
+                  ),
+                ),
               ),
             ),
             Expanded(
